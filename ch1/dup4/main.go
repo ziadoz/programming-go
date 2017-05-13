@@ -1,9 +1,16 @@
 // Dup4 prints the count and text of lines that appear more than once in the
 // input. It reads from stdin or from a list of names files.
+//
+// When reading from a file list it will also print which lines occurred in
+// which files.
+//
 // Usage: go run main.go
 //        go run main.go fake.txt
 //        go run main.go foo.txt
 //        go run main.go foo.txt bar.txt
+//
+// 1.4 Modify the dup2 script to print the names of all the files in which a
+//     duplicated line occurs.
 package main
 
 import (
