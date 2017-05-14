@@ -9,6 +9,7 @@ import (
     "math"
     "math/rand"
     "os"
+    "time"
 )
 
 var palette = []color.Color{color.White, color.Black}
@@ -19,6 +20,7 @@ const (
 )
 
 func main() {
+    rand.Seed(time.Now().UTC().UnixNano())
     lissajous(os.Stdout)
 }
 
