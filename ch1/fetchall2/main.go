@@ -49,7 +49,9 @@ func fetch(url string, ch chan<- string) {
 func cleanUrl(url string) string {
     url = strings.TrimPrefix(url, "http://")
     url = strings.TrimPrefix(url, "https://")
+    url = strings.TrimPrefix(url, "www.")
     url = strings.TrimSuffix(url, "/")
+    url = strings.Replace(url, ".", "_", -1)
     return url
 }
 
