@@ -41,9 +41,6 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
 
 	colour := "#" + queryValueOrDefault(r, "colour", "white")
 
-	// DEBUG
-	fmt.Println(width, height, colour)
-
 	svg := surface(width, height, colour)
 	w.Header().Set("Content-Type", "image/svg+xml")
 	w.Write([]byte(svg))
