@@ -16,6 +16,7 @@ func main() {
 	fmt.Println(anagram("flip", "flop"))
 	fmt.Println(anagram("ƓƕƔ", "ƩƝƔ"))    // UTF-8, shared one identical character.
 	fmt.Println(anagram("foo", "foobar")) // Different lengths.
+	fmt.Println(anagram("barbar", "bar")) // Different lengths.
 }
 
 // Return whether or not two strings are anagrams of one another.
