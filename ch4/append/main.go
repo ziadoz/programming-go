@@ -11,11 +11,14 @@ func main() {
 		fmt.Printf("%d  cap=%d\t%v\n", i, cap(y), y)
 		x = y
 	}
+
+	y = appendInt(y, 99, 98, 97, 96)
+	fmt.Printf("%d  cap=%d\t%v\n", 10, cap(y), y)
 }
 
-func appendInt(x []int, y int) []int {
+func appendInt(x []int, y ...int) []int {
 	var z []int
-	zlen := len(x) + 1
+	zlen := len(x) + len(y)
 	if zlen <= cap(x) {
 		// There is room to grow. Extend the slice.
 		z = x[:zlen]
@@ -29,6 +32,6 @@ func appendInt(x []int, y int) []int {
 		z = make([]int, zlen, zcap)
 		copy(z, x) // Built-in function.
 	}
-	z[len(x)] = y
+	copy(z[len(x):], y)
 	return z
 }
