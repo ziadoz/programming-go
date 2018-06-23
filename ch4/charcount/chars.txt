@@ -1,0 +1,11 @@
+Hello
+World
+This is a test document.
+Lets    tab     things      out.
+The number of times each character appears will be recorded.
+These characters are invalid: � � � �
+Here are some awesome emojis: 🤘 👍 👊🏻 ✊🏿
+And here are some flags: 🇬🇧 🇨🇦 🇪🇺
+Let's carry on with some more "writing".
+What about some funky characters: !@£$%^&*()()()_-+=[][]{}{}"\"\;:;<><,.,../??~`~~~§§±¡€#¢∞§¶•ªºº–≠
+I think we're done!!!
