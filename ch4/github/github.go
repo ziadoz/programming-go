@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"net/http"
 	"net/url"
+	"sort"
 	"strings"
 	"time"
 )
@@ -56,4 +57,27 @@ func SearchIssues(terms []string) (*IssuesSearchResult, error) {
 
 	resp.Body.Close()
 	return &result, nil
+}
+
+func (result *IssuesSearchResult) FilterBetweenTimes(after, before time.Time) *IssuesSearchResult {
+	filtered := []*Issue{}
+
+	for _, issue := range result.Items {
+		if issue.CreatedAt.After(after) && issue.CreatedAt.Before(before) {
+			filtered = append(filtered, issue)
+		}
+	}
+
+	return &IssuesSearchResult{
+		TotalCount: len(filtered),
+		Items:      filtered,
+	}
+}
+
+func (result *IssuesSearchResult) SortByCreatedAtDescending() {
+	sort.Slice(result.Items, func(i, j int) bool {
+		a := result.Items[i]
+		b := result.Items[j]
+		return a.CreatedAt.After(b.CreatedAt)
+	})
 }
