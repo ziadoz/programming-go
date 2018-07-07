@@ -1,6 +1,7 @@
 // Usage: go run main.go is:open json decoder > issues.html
 //        go run main.go is:open laravel eloquent > issues.html
 // 		  ./issueshtml repo:golang/go commenter:gopherbot json encoder > issues.html
+// 		  ./issueshtml repo:golang/go 3133 10535 > issues2.html
 package main
 
 import (
