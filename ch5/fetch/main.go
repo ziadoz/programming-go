@@ -34,7 +34,8 @@ func fetch(url string) (filename string, n int64, err error) {
 	}
 
 	n, err = io.Copy(f, resp.Body)
-	// Close file, but prefer error from copy, if any.
+	// Close file, but prefer error from copy, if any
+	// Closing may return an error (e.g. on NFS), so need to check for that error also.
 	if closeErr := f.Close(); err == nil {
 		err = closeErr
 	}
