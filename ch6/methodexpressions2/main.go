@@ -9,6 +9,8 @@ func (p Point) Sub(q Point) Point { return Point{p.X - q.X, p.Y - q.Y} }
 
 type Path []Point
 
+// Would be better as TranslateBy(offset Point, op func(p, q Point) Point).
+// Because we could then do path.TranslateBy(Point{1, 2}, Point.Add)
 func (path Path) TranslateBy(offset Point, add bool) {
 	// Op is either Add or Sub method expression depending on boolean.
 	var op func(p, q Point) Point
