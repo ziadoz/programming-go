@@ -46,8 +46,8 @@ type By func(h1, h2 *Hobbit) bool
 
 func (by By) Sort(hobbits []Hobbit) {
 	hs := &HobbitSorter{
-		Hobbits:  hobbits,
-		SortFunc: by,
+		Hobbits: hobbits,
+		By:      by,
 	}
 
 	sort.Sort(hs)
@@ -55,8 +55,8 @@ func (by By) Sort(hobbits []Hobbit) {
 
 // A type for sorting. Accepts the objects to sort and a sorting funciton.
 type HobbitSorter struct {
-	Hobbits  []Hobbit
-	SortFunc func(h1, h2 *Hobbit) bool
+	Hobbits []Hobbit
+	By      func(h1, h2 *Hobbit) bool
 }
 
 func (hs *HobbitSorter) Len() int {
@@ -68,7 +68,7 @@ func (hs *HobbitSorter) Swap(i, j int) {
 }
 
 func (hs *HobbitSorter) Less(i, j int) bool {
-	return hs.SortFunc(&hs.Hobbits[i], &hs.Hobbits[j])
+	return hs.By(&hs.Hobbits[i], &hs.Hobbits[j])
 }
 
 func PrintHobbits(hobbits []Hobbit) {
