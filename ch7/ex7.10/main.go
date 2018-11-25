@@ -35,6 +35,7 @@ func main() {
 	values := []Palindrome{
 		Palindrome([]rune("madam")),
 		Palindrome([]rune("palindrome")),
+		Palindrome([]rune("ABLE WAS I ERE I SAW ELBA")),
 	}
 
 	for _, value := range values {
