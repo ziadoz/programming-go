@@ -18,7 +18,7 @@ func main() {
 		log.Println("done")
 		done <- struct{}{} // signal the main goroutine
 	}()
-	mustCopy(conn, os.Stdin)
+	mustCopy(conn, os.Stdin) // Ctrl+D will send EOF and this will stop blocking
 	conn.Close()
 	<-done // wait for the background goroutine to finsh
 }
