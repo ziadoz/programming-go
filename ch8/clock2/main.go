@@ -2,14 +2,24 @@
 package main
 
 import (
+	"flag"
+	"fmt"
 	"io"
 	"log"
 	"net"
 	"time"
 )
 
+var port string
+
 func main() {
-	listener, err := net.Listen("tcp", "localhost:8000")
+	flag.StringVar(&port, "port", "8000", "A port number")
+	flag.Parse()
+
+	address := "localhost:" + port
+	fmt.Println("Starting TCP server on " + address)
+
+	listener, err := net.Listen("tcp", address)
 	if err != nil {
 		log.Fatal(err)
 	}
