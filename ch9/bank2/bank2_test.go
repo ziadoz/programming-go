@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	bank "gopl.io/ch9/bank1"
+	bank "gopl.io/ch9/bank2"
 )
 
 func TestBank(t *testing.T) {
