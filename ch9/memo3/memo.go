@@ -23,7 +23,6 @@ func New(f Func) *Memo {
 	return &Memo{f: f, cache: make(map[string]result)}
 }
 
-// NOTE: Not concurrency safe!
 func (memo *Memo) Get(key string) (interface{}, error) {
 	memo.mu.Lock()
 	res, ok := memo.cache[key]
